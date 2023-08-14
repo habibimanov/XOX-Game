@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<head>
+    
+    <link rel="stylesheet" href="./XOX.css"/>
+    <body>
+        <style>
+            body
+            {
+                background-color: black;
+            }
+            .gameBoard
+            {
+                width:96vw;
+                height:96vh;
+                display: flex;
+                justify-content:center;
+                align-items:center;
+            }
+            .btnCont
+            {
+                width: 620px;
+                height: 620px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 8px;
+            }
+            button
+            {
+                border: none;
+                background-color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0px;
+                width: 201px;
+                height: 201px;
+                font-size: 45px;
+                font-weight: 700;
+                
+            }
+            button:focus
+            {
+                outline: none;
+            }
+        </style>
+
+        <div class="gameBoard">
+            <div class="btnCont">
+            <button value="1" id="btn1" onclick="clickHandler(value)"></button>
+            <button value="2" id="btn2" onclick="clickHandler(value)"></button>
+            <button value="3" id="btn3" onclick="clickHandler(value)"></button>
+            <button value="4" id="btn4" onclick="clickHandler(value)"></button>
+            <button value="5" id="btn5" onclick="clickHandler(value)"></button>
+            <button value="6" id="btn6" onclick="clickHandler(value)"></button>
+            <button value="7" id="btn7" onclick="clickHandler(value)"></button>
+            <button value="8" id="btn8" onclick="clickHandler(value)"></button>
+            <button value="9" id="btn9" onclick="clickHandler(value)"></button>
+
+
+            </div>
+        </div>
+
+        <script>
+
+            
+
+            var checker = 0
+            var gameList = [0,0,0,0,0,0,0,0,0]
+            const clickHandler = (num) => {
+                if(checker == 0 && gameList[num-1] == 0)
+                {
+                    document.getElementById(`btn${num}`).innerHTML = "X"
+                    checker = 1
+                    gameList[num-1] = 2
+                }
+                else if (checker == 1 && gameList[num-1] == 0)
+                {
+                    document.getElementById(`btn${num}`).innerHTML = "O"
+                    checker = 0
+                    gameList[num-1] = 4
+                }
+                
+                for (let i = 0; i < gameList.length; i++) {
+                    if(gameList[i] == 2 && gameList[i+1] == 2 && gameList[i+2] ==2){ 
+                    alert("You Win X Player")
+                }
+                    if(gameList[i] == 2 && gameList[i+3] == 2 && gameList[i+6] ==2){
+                    alert("You Win X Player")
+                }
+                    if(gameList[0] == 2 && gameList[4] == 2 && gameList[8] ==2)
+                {
+                    alert("You Win X Player")
+                }
+                    if(gameList[2] == 2 && gameList[4] == 2 && gameList[6] ==2)
+                {
+                    alert("You Win X Player")
+                }
+
+
+                    if(gameList[i] == 4 && gameList[i+1] == 4 && gameList[i+2] ==4)
+                {
+                    alert("You Win O Player")
+                }
+                    if(gameList[i] == 4 && gameList[i+3] == 4 && gameList[i+6] ==4)
+                {
+                    alert("You Win O Player")
+                }
+                    if(gameList[0] == 4 && gameList[5] == 4 && gameList[8] ==4)
+                {
+                    alert("You Win O Player")
+                }
+                    if(gameList[2] == 4 && gameList[4] == 4 && gameList[6] ==4)
+                {
+                    alert("You Win O Player")
+                }
+            }
+            }
+
+           
+
+        </script>
+
+
+    </body>
+    
+</head>
+<body>
